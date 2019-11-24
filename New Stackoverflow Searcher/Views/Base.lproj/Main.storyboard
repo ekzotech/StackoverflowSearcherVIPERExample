@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rOJ-5V-ab7">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="0VN-Ar-swf">
+            <objects>
+                <tableViewController id="94p-QS-CRm" customClass="FavoritesViewController" customModule="New_Stackoverflow_Searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ah3-gw-ser">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Type in your question" id="8HW-r5-lXX">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="go"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="answerCell" id="V53-dU-eW8">
+                                <rect key="frame" x="0.0" y="72" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V53-dU-eW8" id="uRp-N7-06M">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CIC-Eq-wKG">
+                                            <rect key="frame" x="20" y="0.0" width="374" height="0.0"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="CIC-Eq-wKG" secondAttribute="trailing" constant="20" id="5zx-4S-qEE"/>
+                                        <constraint firstItem="CIC-Eq-wKG" firstAttribute="leading" secondItem="uRp-N7-06M" secondAttribute="leading" constant="20" id="8hX-6v-6nY"/>
+                                        <constraint firstItem="CIC-Eq-wKG" firstAttribute="top" secondItem="uRp-N7-06M" secondAttribute="top" id="QOJ-eH-X22"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="94p-QS-CRm" id="zfh-uw-MrZ"/>
+                            <outlet property="delegate" destination="94p-QS-CRm" id="CxR-ab-4a4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="w6t-7W-2kP"/>
+                    <connections>
+                        <outlet property="favoritesTableView" destination="Ah3-gw-ser" id="WOE-Ns-2eR"/>
+                        <outlet property="searchFavTextField" destination="8HW-r5-lXX" id="XdL-eJ-6ze"/>
+                        <segue destination="FqU-ms-jla" kind="show" identifier="SegueFromFavorites" id="gWl-po-hhV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J2a-Gw-ByU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="453.62318840579712" y="567.1875"/>
+        </scene>
+        <!--Answer Detail View Controller-->
+        <scene sceneID="Fvb-6m-pMv">
+            <objects>
+                <viewController id="FqU-ms-jla" customClass="AnswerDetailViewController" customModule="New_Stackoverflow_Searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="agW-aw-iNy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tdU-RX-6yx">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-20-zIv">
+                                        <rect key="frame" x="8" y="8" width="398" height="717"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VJ5-20-zIv" firstAttribute="leading" secondItem="7bc-ec-xZa" secondAttribute="leading" constant="8" id="ALP-vc-zK3"/>
+                                    <constraint firstItem="VJ5-20-zIv" firstAttribute="top" secondItem="7bc-ec-xZa" secondAttribute="top" constant="8" id="GOQ-bQ-RHQ"/>
+                                    <constraint firstItem="VJ5-20-zIv" firstAttribute="bottom" secondItem="7bc-ec-xZa" secondAttribute="bottom" id="l8P-xu-Ew4"/>
+                                    <constraint firstItem="7bc-ec-xZa" firstAttribute="trailing" secondItem="VJ5-20-zIv" secondAttribute="trailing" constant="8" id="rW7-25-XCE"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="0fc-hj-Zwc"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="7bc-ec-xZa"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tdU-RX-6yx" firstAttribute="top" secondItem="0CS-PA-7Ee" secondAttribute="top" id="KVf-3t-5gO"/>
+                            <constraint firstItem="tdU-RX-6yx" firstAttribute="leading" secondItem="0CS-PA-7Ee" secondAttribute="leading" id="Rpb-TP-xNw"/>
+                            <constraint firstItem="tdU-RX-6yx" firstAttribute="trailing" secondItem="0CS-PA-7Ee" secondAttribute="trailing" id="cVx-Hc-lWr"/>
+                            <constraint firstItem="tdU-RX-6yx" firstAttribute="bottom" secondItem="0CS-PA-7Ee" secondAttribute="bottom" id="pbj-fo-4Xv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0CS-PA-7Ee"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QqS-rn-jsc">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star" catalog="system" style="plain" id="FnH-ef-TwD">
+                            <connections>
+                                <action selector="favoriteButtonPressed:" destination="FqU-ms-jla" id="c0f-21-P42"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="answerLabel" destination="VJ5-20-zIv" id="XOD-be-IsW"/>
+                        <outlet property="favoriteButton" destination="FnH-ef-TwD" id="9ZB-XQ-tQ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V2g-sm-rPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346.376811594203" y="227.67857142857142"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="hbc-F9-kJW">
+            <objects>
+                <navigationController id="CCA-02-fax" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="fF2-i8-e3l"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ddV-cr-Kzy">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="94p-QS-CRm" kind="relationship" relationship="rootViewController" id="8rl-jm-aXw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cxn-pL-KXZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-468.11594202898556" y="567.85714285714278"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="t13-3i-fSf">
+            <objects>
+                <tableViewController id="nGM-zy-mHU" customClass="SearchViewController" customModule="New_Stackoverflow_Searcher" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="tfd-9Z-J86">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" placeholder="Type in your question" id="OVW-BM-re2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="questionCell" id="C7U-CF-aTd">
+                                <rect key="frame" x="0.0" y="84" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="C7U-CF-aTd" id="vuP-i0-usC">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nGM-zy-mHU" id="GBW-4i-cJd"/>
+                            <outlet property="delegate" destination="nGM-zy-mHU" id="HjO-cy-JgE"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="PS1-JQ-iRL"/>
+                    <connections>
+                        <outlet property="searchTableView" destination="tfd-9Z-J86" id="abw-J5-SGe"/>
+                        <outlet property="searchTextField" destination="OVW-BM-re2" id="ItU-Jj-C3Z"/>
+                        <segue destination="FqU-ms-jla" kind="show" identifier="SegueFromSearch" id="1xq-iu-r1C"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6li-ER-xq8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="450.72463768115944" y="-138.61607142857142"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="UlK-fH-FjV">
+            <objects>
+                <navigationController id="iVf-h5-p5K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="FbL-xg-sxJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="taL-D0-8el">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="nGM-zy-mHU" kind="relationship" relationship="rootViewController" id="aXZ-HM-u6h"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xmc-iB-jWY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-466.66666666666669" y="-138.61607142857142"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="cly-e5-icY">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rOJ-5V-ab7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cq1-5q-3Co">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="iVf-h5-p5K" kind="relationship" relationship="viewControllers" id="ZZI-dJ-Rdt"/>
+                        <segue destination="CCA-02-fax" kind="relationship" relationship="viewControllers" id="8Tw-9Y-aJV"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fx0-Lu-w1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1378.2608695652175" y="214.28571428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="star" catalog="system" width="64" height="58"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gWl-po-hhV"/>
+    </inferredMetricsTieBreakers>
+</document>
